@@ -1,0 +1,3 @@
+rootProject.name = "BlockerApp"
+include ':app'
+include ':Blocker'
