@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Create by Im-Tae on 2021. 9. 16.
+  ~
+  ~ Copyright (c) 2021. Im-Tae. All rights reserved.
+  -->
+
+<layout>
+    <data>
+        <variable
+            name="vm"
+            type="com.leaf.blockerapp.view.xml.XmlViewModel" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.xml.XmlActivity"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/throttle_first_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Throttle First"/>
+
+        <Button
+            android:id="@+id/throttle_latest_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Throttle Latest"/>
+
+        <Button
+            android:id="@+id/debounce_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Debounce"/>
+
+    </LinearLayout>
+
+</layout>
