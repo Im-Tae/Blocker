@@ -10,21 +10,16 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.leaf.blockerapp.view.compose.ComposeActivity
+import com.leaf.blockerapp.compose.ButtonView
+import com.leaf.blockerapp.compose.DefaultTheme
 import com.leaf.blockerapp.view.databinding.DataBindingActivity
 import com.leaf.blockerapp.view.xml.XmlActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -33,7 +28,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private val buttonData = arrayListOf(
-        "Compose",
         "XML",
         "DataBinding"
     )
@@ -42,12 +36,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            ButtonListView(buttonData = buttonData)
+            DefaultTheme {
+                MainView(buttonData = buttonData)
+            }
         }
     }
 
     @Composable
-    fun ButtonListView(
+    fun MainView(
         buttonData: List<String>
     ) {
         LazyColumn(
@@ -56,44 +52,20 @@ class MainActivity : AppCompatActivity() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             items(items = buttonData) {
-                ButtonView(buttonData.indexOf(it), it)
-            }
-        }
-    }
-
-    @Composable
-    fun ButtonView(
-        index: Int,
-        title: String
-    ) {
-        Column(
-            modifier = Modifier.padding(top = 10.dp, bottom = 10.dp)
-        ) {
-
-            Button(
-                onClick = {
-                    when (index) {
-                        0 -> { startActivity(ComposeActivity::class.java) }
-                        1-> { startActivity(XmlActivity::class.java) }
-                        2 -> { startActivity(DataBindingActivity::class.java) }
+                ButtonView(it) {
+                    when (buttonData.indexOf(it)) {
+                        0 -> { startActivity(XmlActivity::class.java) }
+                        1 -> { startActivity(DataBindingActivity::class.java) }
                     }
-                },
-                colors = ButtonDefaults.buttonColors(backgroundColor = colorResource(id = android.R.color.holo_red_light)),
-                modifier = Modifier.align(Alignment.CenterHorizontally)
-            ) {
-                Text(
-                    text = title,
-                    fontSize = 12.sp,
-                    fontWeight = FontWeight.Bold
-                )
+                }
             }
         }
     }
 
     @Preview
     @Composable
-    fun PreviewButtonListView() {
-        ButtonListView(buttonData)
+    fun PreviewMainView() {
+        MainView(buttonData)
     }
 
     private fun startActivity(activityName : Class<*>) = startActivity(Intent(this, activityName))
