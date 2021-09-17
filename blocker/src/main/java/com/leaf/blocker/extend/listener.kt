@@ -7,7 +7,7 @@
 package com.leaf.blocker.extend
 
 import android.view.View
-import kotlinx.coroutines.*
+import kotlinx.coroutines.MainScope
 
 /**
  * Register a callback to be invoked when this view is clicked. If this view is not clickable, it becomes clickable.

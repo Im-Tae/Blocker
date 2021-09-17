@@ -7,6 +7,7 @@
 package com.leaf.blockerapp.view.xml
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -42,27 +43,35 @@ class XmlActivity : AppCompatActivity() {
 
             throttleFirstButton.setOnThrottleFirstListener {
                 Timber.i("Button Click (throttle first)")
+                showToast("Button Click (throttle first)")
             }
 
             throttleFirstButton.setOnThrottleFirstListener(listener = {
                 Timber.i("Button Click (throttle first)")
+                showToast("Button Click (throttle first)")
             })
 
-            throttleLatestButton.setOnThrottleLastListener {
+            throttleLastButton.setOnThrottleLastListener {
                 Timber.i("Button Click (throttle last)")
+                showToast("Button Click (throttle last)")
             }
 
-            throttleLatestButton.setOnThrottleLastListener(listener = {
+            throttleLastButton.setOnThrottleLastListener(listener = {
                 Timber.i("Button Click (throttle last)")
+                showToast("Button Click (throttle last)")
             })
 
             debounceButton.setOnDebounceClickListener {
                 Timber.i("Button Click (debounce)")
+                showToast("Button Click (debounce)")
             }
 
             debounceButton.setOnDebounceClickListener(listener = {
                 Timber.i("Button Click (debounce)")
+                showToast("Button Click (debounce)")
             })
         }
     }
+
+    private fun showToast(message: String) = Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 }
