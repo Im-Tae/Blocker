@@ -7,6 +7,7 @@
 package com.leaf.blockerapp
 
 import android.app.Application
+import com.leaf.blocker.Blocker
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 
@@ -17,5 +18,7 @@ class MyApplication : Application() {
         super.onCreate()
 
         Timber.plant(Timber.DebugTree())
+
+        Blocker.setInterval(2000)
     }
 }

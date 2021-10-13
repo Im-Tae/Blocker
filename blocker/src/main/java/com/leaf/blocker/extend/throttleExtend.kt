@@ -12,7 +12,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 fun <T> throttleFirst(
-    skipInterval: Long = 2000L,
+    skipInterval: Long,
     coroutineScope: CoroutineScope,
     callback: (T) -> Unit
 ): (T) -> Unit {
@@ -28,7 +28,7 @@ fun <T> throttleFirst(
 }
 
 fun <T, G> throttleFirst(
-    skipInterval: Long = 2000L,
+    skipInterval: Long,
     coroutineScope: CoroutineScope,
     callback: (T, G) -> Unit
 ): (T, G) -> Unit {
@@ -44,7 +44,7 @@ fun <T, G> throttleFirst(
 }
 
 fun <T> throttleLatest(
-    skipInterval: Long = 2000L,
+    skipInterval: Long,
     coroutineScope: CoroutineScope,
     callback: (T) -> Unit
 ): (T) -> Unit {
@@ -62,7 +62,7 @@ fun <T> throttleLatest(
 }
 
 fun <T, G> throttleLatest(
-    skipInterval: Long = 2000L,
+    skipInterval: Long,
     coroutineScope: CoroutineScope,
     callback: (T, G) -> Unit
 ): (T, G) -> Unit {

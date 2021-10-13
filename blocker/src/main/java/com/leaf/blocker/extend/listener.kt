@@ -7,6 +7,7 @@
 package com.leaf.blocker.extend
 
 import android.view.View
+import com.leaf.blocker.Blocker
 import kotlinx.coroutines.MainScope
 
 /**
@@ -31,7 +32,7 @@ import kotlinx.coroutines.MainScope
  * @param skipInterval skip interval; default interval is 2000Ms
  * @param listener OnClick Callback
  * */
-fun View.setOnThrottleFirstListener(skipInterval: Long = 2000L, listener: View.OnClickListener?) {
+fun View.setOnThrottleFirstListener(skipInterval: Long = Blocker.getInterval(), listener: View.OnClickListener?) {
     if (listener != null) {
         val onThrottleClick: (view: View) -> Unit =
             throttleFirst(skipInterval = skipInterval, coroutineScope = MainScope()) { view: View ->
@@ -62,7 +63,7 @@ fun View.setOnThrottleFirstListener(skipInterval: Long = 2000L, listener: View.O
  * @param skipInterval skip interval; default interval is 2000Ms
  * @param listener OnClick Callback
  * */
-fun View.setOnThrottleLastListener(skipInterval: Long = 2000L, listener: View.OnClickListener?) {
+fun View.setOnThrottleLastListener(skipInterval: Long = Blocker.getInterval(), listener: View.OnClickListener?) {
     if (listener != null) {
         val onThrottleClick: (view: View) -> Unit =
             throttleLatest(skipInterval = skipInterval, coroutineScope = MainScope()) { view: View ->
@@ -79,7 +80,7 @@ fun View.setOnThrottleLastListener(skipInterval: Long = 2000L, listener: View.On
  * ```
  * -------
  * ```
- * 처음 요청이후 interval 기준으로 요청이 들어오지 않으면 처리합니다.
+ * 첫 요청 이후 interval 기준으로 요청이 들어오지 않으면 처리합니다.
  * ```
  * -------
  * ```
@@ -93,7 +94,7 @@ fun View.setOnThrottleLastListener(skipInterval: Long = 2000L, listener: View.On
  * @param waitInterval wait interval; default interval is 2000Ms
  * @param listener OnClick Callback
  * */
-fun View.setOnDebounceClickListener(waitInterval: Long = 2000L, listener: View.OnClickListener?) {
+fun View.setOnDebounceClickListener(waitInterval: Long = Blocker.getInterval(), listener: View.OnClickListener?) {
     if (listener != null) {
         val onDebounceClick: (view: View) -> Unit =
             debounce(waitInterval = waitInterval, coroutineScope = MainScope()) { view: View ->
