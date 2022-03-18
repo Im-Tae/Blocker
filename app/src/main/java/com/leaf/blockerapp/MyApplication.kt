@@ -19,6 +19,6 @@ class MyApplication : Application() {
 
         Timber.plant(Timber.DebugTree())
 
-        Blocker.setInterval(2000)
+        Blocker.setInterval(3000)
     }
 }
