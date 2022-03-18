@@ -89,5 +89,5 @@ dependencies {
 
     implementation "com.jakewharton.timber:timber:$timber_version"
 
-    implementation project(path: ':blocker')
+    implementation project(':blocker')
 }
