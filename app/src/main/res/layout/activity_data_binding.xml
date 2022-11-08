@@ -26,40 +26,46 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Throttle First [Default]"
-            app:onThrottleFirstClick="@{vm::onClickButton}"/>
+            app:onThrottleFirstClick="@{vm::onClickButton}"
+            tools:ignore="HardcodedText" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Throttle First [5000Ms]"
             app:onThrottleFirstClick="@{vm::onClickButton}"
-            app:skipInterval="@{5000L}"/>
+            app:skipInterval="@{5000L}"
+            tools:ignore="HardcodedText" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Throttle Last [Default]"
-            app:onThrottleLastClick="@{vm::onClickButton}"/>
+            app:onThrottleLastClick="@{vm::onClickButton}"
+            tools:ignore="HardcodedText" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Throttle Last [5000Ms]"
             app:onThrottleLastClick="@{vm::onClickButton}"
-            app:skipInterval="@{5000L}"/>
+            app:skipInterval="@{5000L}"
+            tools:ignore="HardcodedText" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Debounce [Default]"
-            app:onDebounceClick="@{vm::onClickButton}"/>
+            app:onDebounceClick="@{vm::onClickButton}"
+            tools:ignore="HardcodedText" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Debounce [5000Ms]"
             app:onDebounceClick="@{vm::onClickButton}"
-            app:waitInterval="@{5000L}"/>
+            app:waitInterval="@{5000L}"
+            tools:ignore="HardcodedText" />
 
     </LinearLayout>
 
