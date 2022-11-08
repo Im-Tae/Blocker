@@ -11,6 +11,22 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
+fun throttleFirst(
+    skipInterval: Long,
+    coroutineScope: CoroutineScope,
+    callback: () -> Unit
+): () -> Unit {
+    var throttleJob: Job? = null
+    return {
+        if (throttleJob?.isCompleted != false) {
+            throttleJob = coroutineScope.launch {
+                callback()
+                delay(skipInterval)
+            }
+        }
+    }
+}
+
 fun <T> throttleFirst(
     skipInterval: Long,
     coroutineScope: CoroutineScope,

@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.leaf.blockerapp.compose.ButtonView
 import com.leaf.blockerapp.compose.DefaultTheme
+import com.leaf.blockerapp.view.compose.ComposeActivity
 import com.leaf.blockerapp.view.databinding.DataBindingActivity
 import com.leaf.blockerapp.view.xml.XmlActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,7 +30,8 @@ class MainActivity : AppCompatActivity() {
 
     private val buttonData = arrayListOf(
         "XML",
-        "DataBinding"
+        "DataBinding",
+        "Compose"
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,6 +58,7 @@ class MainActivity : AppCompatActivity() {
                     when (buttonData.indexOf(it)) {
                         0 -> { startActivity(XmlActivity::class.java) }
                         1 -> { startActivity(DataBindingActivity::class.java) }
+                        2 -> { startActivity(ComposeActivity::class.java) }
                     }
                 }
             }
