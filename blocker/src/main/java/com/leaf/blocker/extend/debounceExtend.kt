@@ -11,6 +11,21 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
+fun debounce(
+    waitInterval: Long = 2000L,
+    coroutineScope: CoroutineScope,
+    callback: () -> Unit
+): () -> Unit {
+    var debounceJob: Job? = null
+    return {
+        debounceJob?.cancel()
+        debounceJob = coroutineScope.launch {
+            delay(waitInterval)
+            callback()
+        }
+    }
+}
+
 fun <T> debounce(
     waitInterval: Long = 2000L,
     coroutineScope: CoroutineScope,
