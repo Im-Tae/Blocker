@@ -51,7 +51,7 @@ buildscript {
 }
 
 ext {
-    compileSdkVersion = 32
+    compileSdkVersion = 33
     buildToolsVersion = "30.0.3"
 
     applicationId = "com.leaf.blockerapp"
