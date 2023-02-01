@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BlockerApp">
         <activity
+            android:name=".view.compose.ComposeActivity"
+            android:exported="true" />
+        <activity
             android:name=".view.databinding.DataBindingActivity"
             android:exported="true" />
         <activity

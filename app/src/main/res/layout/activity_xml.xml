@@ -5,15 +5,16 @@
   ~ Copyright (c) 2021. Im-Tae. All rights reserved.
   -->
 
-<layout>
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
         <variable
             name="vm"
             type="com.leaf.blockerapp.view.xml.XmlViewModel" />
     </data>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".view.xml.XmlActivity"
@@ -24,19 +25,22 @@
             android:id="@+id/throttle_first_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Throttle First"/>
+            android:text="Throttle First"
+            tools:ignore="HardcodedText" />
 
         <Button
             android:id="@+id/throttle_last_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Throttle Last"/>
+            android:text="Throttle Last"
+            tools:ignore="HardcodedText" />
 
         <Button
             android:id="@+id/debounce_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Debounce"/>
+            android:text="Debounce"
+            tools:ignore="HardcodedText" />
 
     </LinearLayout>
 

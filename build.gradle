@@ -31,11 +31,11 @@ buildscript {
 
         coroutine_version = "1.5.0"
 
-        hilt_version = "2.38.1"
+        hilt_version = "2.41"
 
         timber_version = "4.7.1"
 
-        library_version = "1.0.2"
+        library_version = "1.1.0"
     }
 
     repositories {
@@ -51,7 +51,7 @@ buildscript {
 }
 
 ext {
-    compileSdkVersion = 32
+    compileSdkVersion = 33
     buildToolsVersion = "30.0.3"
 
     applicationId = "com.leaf.blockerapp"
