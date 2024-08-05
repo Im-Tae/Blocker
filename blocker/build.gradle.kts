@@ -1,42 +1,44 @@
+import com.imtae.buildsrc.Configuration
+
+val libVersion = "1.0.0"
+
 plugins {
     id("com.android.library")
-    id("maven-publish")
     id("kotlin-android")
     id("kotlin-kapt")
+    id("com.vanniktech.maven.publish") version "0.29.0"
 }
 
-val blockerVersionCode = 2
-val blockerVersionName = "1.3.0"
-
-afterEvaluate {
-    publishing {
-        publications {
-            create<MavenPublication>("release") {
-                from(components["release"])
-                groupId = "com.leaf.blockerapp"
-                artifactId = "blocker"
-                version = blockerVersionName
-            }
-
-            create<MavenPublication>("debug") {
-                from(components["debug"])
-                groupId = "com.leaf.blockerapp"
-                artifactId = "blocker"
-                version = blockerVersionName
-            }
+rootProject.extra.apply {
+    val snapshot = System.getenv("SNAPSHOT").toBoolean()
+    val libVersion =
+        if (snapshot) {
+            Configuration.snapshotVersionName
+        } else {
+            Configuration.versionName
         }
+    set("libVersion", libVersion)
+}
+
+mavenPublishing {
+    val artifactId = "blocker"
+    coordinates(
+        Configuration.artifactGroup,
+        artifactId,
+        rootProject.extra.get("libVersion").toString()
+    )
+    pom {
+        name.set(artifactId)
+        description.set("Set a delay on Android listener")
     }
 }
 
-
 android {
-    compileSdk = 34
+    compileSdk = Configuration.compileSdk
     namespace = "com.leaf.blocker"
 
     defaultConfig {
-        minSdk = 21
-//        versionCode = blockerVersionCode
-//        versionName = blockerVersionName
+        minSdk = Configuration.minSdk
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -44,7 +46,6 @@ android {
     buildTypes {
         getByName("debug") {
             signingConfig = signingConfigs.getByName("debug")
-//            isDebuggable = true
         }
         getByName("release") {
             isMinifyEnabled = true

@@ -1,3 +1,5 @@
+import com.imtae.buildsrc.Configuration
+
 plugins {
     id("com.android.application")
     id("kotlin-android")
@@ -10,10 +12,10 @@ android {
     namespace = "com.leaf.blockerapp"
 
     defaultConfig {
-        minSdk = 21
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = Configuration.minSdk
+        targetSdk = Configuration.targetSdk
+        versionCode = Configuration.versionCode
+        versionName = Configuration.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

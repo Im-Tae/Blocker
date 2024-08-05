@@ -7,7 +7,7 @@
 <p align="center">  
 Use this library to set a delay on your Android listener.</p>
 <p align="center">
-    <a href="https://github.com/Im-Tae/Blocker/blob/master/README.md">KOREAN<a/>
+    <a href="https://github.com/Im-Tae/Blocker/blob/master/README.md">KOREAN</a>
 </p>
 
 
@@ -15,7 +15,7 @@ Use this library to set a delay on your Android listener.</p>
 
 ## Install
 
-[![](https://jitci.com/gh/Im-Tae/Blocker/svg)](https://jitci.com/gh/Im-Tae/Blocker) [![](https://jitpack.io/v/Im-Tae/Blocker.svg)](https://jitpack.io/#Im-Tae/Blocker)
+[![](https://github.com/Im-Tae/Blocker/actions/workflows/ci.yml/badge.svg)](https://github.com/Im-Tae/Blocker/actions) [![Maven Central](https://img.shields.io/maven-central/v/io.github.im-tae/blocker.svg?label=Maven%20Central)](https://search.maven.org/search?q=io.github.im-tae%2C+blocker)
 
 ### Gradle
 
