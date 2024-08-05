@@ -7,7 +7,10 @@
 package com.leaf.blocker.extend
 
 import android.view.View
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.coroutineScope
 import com.leaf.blocker.Blocker
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 
 /**
@@ -28,14 +31,18 @@ import kotlinx.coroutines.MainScope
  * }
  * ```
  *
- *
+ * @param lifecycle View Lifecycle
  * @param skipInterval skip interval; default interval is 2000Ms
  * @param listener OnClick Callback
  * */
-fun View.setOnThrottleFirstListener(skipInterval: Long = Blocker.getInterval(), listener: View.OnClickListener?) {
+fun View.setOnThrottleFirstListener(
+    lifecycle: Lifecycle,
+    skipInterval: Long = Blocker.getInterval(),
+    listener: View.OnClickListener?
+) {
     if (listener != null) {
         val onThrottleClick: (view: View) -> Unit =
-            throttleFirst(skipInterval = skipInterval, coroutineScope = MainScope()) { view: View ->
+            throttleFirst(skipInterval = skipInterval, coroutineScope = lifecycle.coroutineScope) { view: View ->
                 listener.onClick(view)
             }
         setOnClickListener(onThrottleClick)
@@ -59,14 +66,18 @@ fun View.setOnThrottleFirstListener(skipInterval: Long = Blocker.getInterval(), 
  *     // code
  * }
  * ```
- *
+ * @param lifecycle View Lifecycle
  * @param skipInterval skip interval; default interval is 2000Ms
  * @param listener OnClick Callback
  * */
-fun View.setOnThrottleLastListener(skipInterval: Long = Blocker.getInterval(), listener: View.OnClickListener?) {
+fun View.setOnThrottleLastListener(
+    lifecycle: Lifecycle,
+    skipInterval: Long = Blocker.getInterval(),
+    listener: View.OnClickListener?
+) {
     if (listener != null) {
         val onThrottleClick: (view: View) -> Unit =
-            throttleLatest(skipInterval = skipInterval, coroutineScope = MainScope()) { view: View ->
+            throttleLatest(skipInterval = skipInterval, coroutineScope = lifecycle.coroutineScope) { view: View ->
                 listener.onClick(view)
             }
         setOnClickListener(onThrottleClick)
@@ -90,14 +101,18 @@ fun View.setOnThrottleLastListener(skipInterval: Long = Blocker.getInterval(), l
  *     // code
  * }
  * ```
- *
+ * @param lifecycle View Lifecycle
  * @param waitInterval wait interval; default interval is 2000Ms
  * @param listener OnClick Callback
  * */
-fun View.setOnDebounceClickListener(waitInterval: Long = Blocker.getInterval(), listener: View.OnClickListener?) {
+fun View.setOnDebounceClickListener(
+    lifecycle: Lifecycle,
+    waitInterval: Long = Blocker.getInterval(),
+    listener: View.OnClickListener?
+) {
     if (listener != null) {
         val onDebounceClick: (view: View) -> Unit =
-            debounce(waitInterval = waitInterval, coroutineScope = MainScope()) { view: View ->
+            debounce(waitInterval = waitInterval, coroutineScope = lifecycle.coroutineScope) { view: View ->
                 listener.onClick(view)
             }
         setOnClickListener(onDebounceClick)

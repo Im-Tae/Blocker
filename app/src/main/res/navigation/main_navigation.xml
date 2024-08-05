@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Create by Im-Tae on 2024. 8. 5.
+  ~
+  ~ Copyright (c) 2024. Im-Tae. All rights reserved.
+  -->
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.leaf.blockerapp.view.main.MainFragment"
+        android:label="MainFragment" />
+    <action
+        android:id="@+id/action_mainFragment"
+        app:destination="@id/mainFragment"/>
+
+    <fragment
+        android:id="@+id/viewFragment"
+        android:name="com.leaf.blockerapp.view.xml.ViewFragment"
+        android:label="XmlFragment"
+        tools:layout="@layout/fragment_view"/>
+    <action
+        android:id="@+id/action_viewFragment"
+        app:destination="@id/viewFragment"/>
+
+    <fragment
+        android:id="@+id/dataBindingFragment"
+        android:name="com.leaf.blockerapp.view.databinding.DataBindingFragment"
+        android:label="DataBindingFragment"
+        tools:layout="@layout/fragment_data_binding"/>
+    <action
+        android:id="@+id/action_dataBindingFragment"
+        app:destination="@id/dataBindingFragment"/>
+
+    <fragment
+        android:id="@+id/composeFragment"
+        android:name="com.leaf.blockerapp.view.compose.ComposeFragment"
+        android:label="ComposeFragment" />
+    <action
+        android:id="@+id/action_composeFragment"
+        app:destination="@id/composeFragment"/>
+
+</navigation>

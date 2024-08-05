@@ -4,6 +4,8 @@ androidxAppcompat = "1.7.0"
 androidxActivityKtx = "1.9.1"
 androidxFragmentKtx = "1.8.2"
 
+navigationKtx = "2.7.7"
+
 googleMaterial = "1.12.0"
 androidxConstraintlayout = "2.1.4"
 
@@ -43,6 +45,9 @@ androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidxAppcompat" }
 androidx-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "androidxActivityKtx" }
 androidx-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "androidxFragmentKtx" }
+
+navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationKtx" }
+navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationKtx" }
 
 google-android-material = { module = "com.google.android.material:material", version.ref = "googleMaterial" }
 androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "androidxConstraintlayout" }

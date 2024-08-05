@@ -11,13 +11,13 @@
     <data>
         <variable
             name="vm"
-            type="com.leaf.blockerapp.view.xml.XmlViewModel" />
+            type="com.leaf.blockerapp.view.xml.ViewViewModel" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.xml.XmlActivity"
+        tools:context=".view.xml.ViewFragment"
         android:gravity="center"
         android:orientation="vertical">
 

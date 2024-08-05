@@ -4,6 +4,11 @@ on:
   release:
     types: [ released ]
   workflow_dispatch:
+    inputs:
+      version_name:
+        description: 'The version name for the tag'
+        required: true
+        default: 'Unknown'
 
 jobs:
   publish:
@@ -11,10 +16,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 체크아웃
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: JDK 17 설치
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           java-version: 17
           distribution: temurin
@@ -31,3 +36,11 @@ jobs:
           ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.SIGNING_KEY }}
           ORG_GRADLE_PROJECT_signingInMemoryKeyId: ${{ secrets.SIGNING_KEY_ID }}
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.SIGNING_PASSWORD }}
+
+      - name: 태그 생성
+        if: success()  # 배포가 성공하면 실행
+        run: |
+          git tag ${{ github.event.inputs.version_name }}
+          git push origin ${{ github.event.inputs.version_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

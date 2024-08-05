@@ -19,22 +19,11 @@
 
 ### Gradle
 
-**Project : build.gradle**
-
-```gradle
-allprojects {
-    repositories {
-	    ...
-	    maven { url 'https://jitpack.io' }
-	}
-}
-```
-
 **Module : build.gradle**
 
 ```gradle
 dependencies {
-    implementation 'com.github.Im-Tae:Blocker:Version'
+    implementation("io.github.im-tae:blocker:$Version")
 }
 ```
 
@@ -43,19 +32,10 @@ dependencies {
 ### Maven
 
 ```maven
-<repositories>
-	<repository>
-		<id>jitpack.io</id>
-		<url>https://jitpack.io</url>
-	</repository>
-</repositories>
-```
-
-```maven
 <dependency>
-	<groupId>com.github.Im-Tae</groupId>
-	<artifactId>Blocker</artifactId>
-	<version>Version</version>
+    <groupId>io.github.im-tae</groupId>
+    <artifactId>blocker</artifactId>
+    <version>$Version</version>
 </dependency>
 ```
 
