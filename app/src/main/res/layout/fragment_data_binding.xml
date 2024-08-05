@@ -18,7 +18,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.databinding.DataBindingActivity"
+        tools:context=".view.databinding.DataBindingFragment"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -26,14 +26,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Throttle First [Default]"
-            app:onThrottleFirstClick="@{vm::onClickButton}"
+            app:onThrottleFirstClick="@{view -> vm.onClickButtonForLogging(view, `Throttle First [Default]`)}"
             tools:ignore="HardcodedText" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Throttle First [5000Ms]"
-            app:onThrottleFirstClick="@{vm::onClickButton}"
+            app:onThrottleFirstClick="@{view -> vm.onClickButtonForLogging(view, `Throttle First [5000Ms]`)}"
             app:skipInterval="@{5000L}"
             tools:ignore="HardcodedText" />
 
@@ -41,14 +41,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Throttle Last [Default]"
-            app:onThrottleLastClick="@{vm::onClickButton}"
+            app:onThrottleLastClick="@{view -> vm.onClickButtonForLogging(view, `Throttle First [Default]`)}"
             tools:ignore="HardcodedText" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Throttle Last [5000Ms]"
-            app:onThrottleLastClick="@{vm::onClickButton}"
+            app:onThrottleLastClick="@{view -> vm.onClickButtonForLogging(view, `Throttle First [5000Ms]`)}"
             app:skipInterval="@{5000L}"
             tools:ignore="HardcodedText" />
 
@@ -56,14 +56,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Debounce [Default]"
-            app:onDebounceClick="@{vm::onClickButton}"
+            app:onDebounceClick="@{view -> vm.onClickButtonForLogging(view, `Throttle First [Default]`)}"
             tools:ignore="HardcodedText" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Debounce [5000Ms]"
-            app:onDebounceClick="@{vm::onClickButton}"
+            app:onDebounceClick="@{view -> vm.onClickButtonForLogging(view, `Throttle First [5000Ms]`)}"
             app:waitInterval="@{5000L}"
             tools:ignore="HardcodedText" />
 

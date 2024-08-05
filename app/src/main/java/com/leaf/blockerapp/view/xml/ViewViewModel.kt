@@ -11,7 +11,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class XmlViewModel @Inject constructor(
+class ViewViewModel @Inject constructor(
 
 ) : ViewModel() {
 

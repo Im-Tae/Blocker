@@ -26,8 +26,15 @@ class DataBindingViewModel @Inject constructor(
 
     fun onClickButton(view: View) {
         viewModelScope.launch {
-            Timber.i("Button Click")
+            Timber.tag("[DataBinding] ").i("Button Click")
             _showToastEvent.emit("Click")
+        }
+    }
+
+    fun onClickButtonForLogging(view: View, logText: String) {
+        viewModelScope.launch {
+            Timber.tag("[DataBinding] ").i(logText)
+            _showToastEvent.emit(logText)
         }
     }
 }
