@@ -36,7 +36,7 @@ class ViewFragment : Fragment() {
         binding = FragmentViewBinding.inflate(inflater, container, false)
         binding.apply {
             setVariable(BR.vm, viewModel)
-            lifecycleOwner = this@ViewFragment
+            lifecycleOwner = viewLifecycleOwner
         }
         return binding.root
     }
@@ -51,17 +51,17 @@ class ViewFragment : Fragment() {
 
         binding.apply {
 
-            throttleFirstButton.setOnThrottleFirstListener {
+            throttleFirstButton.setOnThrottleFirstListener(viewLifecycleOwner.lifecycle) {
                 Timber.tag("[View] ").i("Button Click (throttle first)")
                 showToast("Button Click (throttle first)")
             }
 
-            throttleLastButton.setOnThrottleLastListener {
+            throttleLastButton.setOnThrottleLastListener(viewLifecycleOwner.lifecycle) {
                 Timber.tag("[View] ").i("Button Click (throttle last)")
                 showToast("Button Click (throttle last)")
             }
 
-            debounceButton.setOnDebounceClickListener {
+            debounceButton.setOnDebounceClickListener(viewLifecycleOwner.lifecycle) {
                 Timber.tag("[View] ").i("Button Click (debounce)")
                 showToast("Button Click (debounce)")
             }

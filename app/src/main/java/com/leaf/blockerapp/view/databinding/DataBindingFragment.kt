@@ -35,7 +35,7 @@ class DataBindingFragment : Fragment() {
         binding = FragmentDataBindingBinding.inflate(inflater, container, false)
         binding.apply {
             setVariable(BR.vm, viewModel)
-            lifecycleOwner = this@DataBindingFragment
+            lifecycleOwner = viewLifecycleOwner
         }
         return binding.root
     }

@@ -4,7 +4,7 @@
  * Copyright (c) 2024. Im-Tae. All rights reserved.
  */
 
-package com.leaf.blockerapp.view
+package com.leaf.blockerapp.view.main
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

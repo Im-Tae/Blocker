@@ -4,7 +4,7 @@
  * Copyright (c) 2024. Im-Tae. All rights reserved.
  */
 
-package com.leaf.blockerapp.view
+package com.leaf.blockerapp.view.main
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxSize

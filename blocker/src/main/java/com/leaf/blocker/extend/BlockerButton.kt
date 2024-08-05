@@ -19,6 +19,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Shape
+import androidx.lifecycle.compose.LocalLifecycleOwner
+import androidx.lifecycle.lifecycleScope
 import com.leaf.blocker.Blocker
 import kotlinx.coroutines.MainScope
 
@@ -36,11 +38,13 @@ fun ThrottleButton(
     contentPadding: PaddingValues = ButtonDefaults.ContentPadding,
     content: @Composable RowScope.() -> Unit,
 ) {
+    val lifecycleOwner = LocalLifecycleOwner.current
     Button(
         onClick = throttleFirst(
             skipInterval = skipInterval,
-            coroutineScope = MainScope()
-        ) { onClick() },
+            coroutineScope = lifecycleOwner.lifecycleScope,
+            callback = onClick
+        ),
         modifier = modifier,
         enabled = enabled,
         interactionSource = interactionSource,
@@ -67,11 +71,13 @@ fun DebounceButton(
     contentPadding: PaddingValues = ButtonDefaults.ContentPadding,
     content: @Composable RowScope.() -> Unit,
 ) {
+    val lifecycleOwner = LocalLifecycleOwner.current
     Button(
         onClick = debounce(
             waitInterval = waitInterval,
-            coroutineScope = MainScope()
-        ) { onClick() },
+            coroutineScope = lifecycleOwner.lifecycleScope,
+            callback = onClick
+        ),
         modifier = modifier,
         enabled = enabled,
         interactionSource = interactionSource,
