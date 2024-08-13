@@ -12,7 +12,7 @@ on:
 
 jobs:
   publish:
-    name: 배포
+    name: Publish
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
