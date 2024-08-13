@@ -5,15 +5,12 @@
   <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
 </p>
 <p align="center">  
-안드로이드 리스너에 딜레이를 설정할 수 있는 라이브러리입니다.</p>
-<p align="center">
-    <a href="https://github.com/Im-Tae/Blocker/blob/master/README/ENGLISH.md">ENGLISH</a>
-</p>
+Use this library to set a delay on your Android listener.</p>
 
 
 
 
-## 설치
+## Install
 
 [![](https://github.com/Im-Tae/Blocker/actions/workflows/ci.yml/badge.svg)](https://github.com/Im-Tae/Blocker/actions) [![Maven Central](https://img.shields.io/maven-central/v/io.github.im-tae/blocker.svg?label=Maven%20Central)](https://search.maven.org/search?q=io.github.im-tae%2C+blocker)
 
@@ -41,7 +38,7 @@ dependencies {
 
 
 
-## 라이센스
+## License
 
 ```
 Copyright 2022 Im-Tae (TaeGeon Lim)
