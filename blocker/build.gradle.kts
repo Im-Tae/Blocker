@@ -1,4 +1,4 @@
-import com.imtae.buildsrc.Configuration
+import com.leaf.buildsrc.Configuration
 
 val libVersion = "1.0.0"
 
@@ -46,10 +46,6 @@ android {
     buildTypes {
         getByName("debug") {
             signingConfig = signingConfigs.getByName("debug")
-        }
-        getByName("release") {
-            isMinifyEnabled = true
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
 

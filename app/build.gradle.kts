@@ -1,4 +1,4 @@
-import com.imtae.buildsrc.Configuration
+import com.leaf.buildsrc.Configuration
 
 plugins {
     id("com.android.application")

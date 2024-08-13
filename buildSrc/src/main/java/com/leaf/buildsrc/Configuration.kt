@@ -1,10 +1,10 @@
 /*
- * Create by Im-Tae on 2024. 8. 5.
+ * Create by Im-Tae on 2024. 8. 13.
  *
  * Copyright (c) 2024. Im-Tae. All rights reserved.
  */
 
-package com.imtae.buildsrc
+package com.leaf.buildsrc
 
 object Configuration {
     const val compileSdk = 34
@@ -12,7 +12,7 @@ object Configuration {
     const val minSdk = 21
     const val majorVersion = 1
     const val minorVersion = 1
-    const val patchVersion = 0
+    const val patchVersion = 1
     const val versionName = "$majorVersion.$minorVersion.$patchVersion"
     const val versionCode = 1
     const val snapshotVersionName = "$majorVersion.$minorVersion.${patchVersion + 1}-SNAPSHOT"
