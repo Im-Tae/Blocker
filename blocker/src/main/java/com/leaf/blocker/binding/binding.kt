@@ -1,7 +1,7 @@
 /*
- * Create by Im-Tae on 2024. 8. 14.
+ * Create by Im-Tae on 2021. 9. 16.
  *
- * Copyright (c) 2024. Im-Tae. All rights reserved.
+ * Copyright (c) 2021. Im-Tae. All rights reserved.
  */
 
 package com.leaf.blocker.binding

@@ -1,20 +1,20 @@
 /*
- * Create by Im-Tae on 2022. 11. 7.
+ * Create by Im-Tae on 2024. 8. 14.
  *
- * Copyright (c) 2022. Im-Tae. All rights reserved.
+ * Copyright (c) 2024. Im-Tae. All rights reserved.
  */
 
-package com.leaf.blocker.compose.material3
+package com.leaf.blocker.compose.material
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.RowScope
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonColors
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.ButtonElevation
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.material.Button
+import androidx.compose.material.ButtonColors
+import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.ButtonElevation
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -25,14 +25,6 @@ import com.leaf.blocker.Blocker
 import com.leaf.blocker.extend.debounce
 import com.leaf.blocker.extend.throttleFirst
 
-/**
- * A ThrottleButton is a button that prevents multiple clicks in a short time.
- * This callback emit the most recent items emitted by an Observable within periodic time intervals.
- *
- * @param skipInterval skip interval; default interval is 2000Ms
- *
- * Using [com.leaf.blocker.Blocker.Companion.setInterval] to change interval
- */
 @Composable
 fun ThrottleButton(
     onClick: () -> Unit,
@@ -40,7 +32,7 @@ fun ThrottleButton(
     skipInterval: Long = Blocker.getInterval(),
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    elevation: ButtonElevation? = ButtonDefaults.buttonElevation(),
+    elevation: ButtonElevation? = ButtonDefaults.elevation(),
     shape: Shape = MaterialTheme.shapes.small,
     border: BorderStroke? = null,
     colors: ButtonColors = ButtonDefaults.buttonColors(),
@@ -66,14 +58,6 @@ fun ThrottleButton(
     )
 }
 
-/**
- * A DebounceButton is a button that prevents multiple clicks in a short time.
- * This callback only emit an item from an Observable if a particular timespan has passed without it emitting another item.
- *
- * @param waitInterval wait interval; default interval is 2000Ms
- *
- * Using [com.leaf.blocker.Blocker.Companion.setInterval] to change interval
- */
 @Composable
 fun DebounceButton(
     onClick: () -> Unit,
@@ -81,7 +65,7 @@ fun DebounceButton(
     waitInterval: Long = Blocker.getInterval(),
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    elevation: ButtonElevation? = ButtonDefaults.buttonElevation(),
+    elevation: ButtonElevation? = ButtonDefaults.elevation(),
     shape: Shape = MaterialTheme.shapes.small,
     border: BorderStroke? = null,
     colors: ButtonColors = ButtonDefaults.buttonColors(),

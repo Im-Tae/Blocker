@@ -1,7 +1,7 @@
 /*
- * Create by Im-Tae on 2024. 8. 14.
+ * Create by Im-Tae on 2021. 9. 16.
  *
- * Copyright (c) 2024. Im-Tae. All rights reserved.
+ * Copyright (c) 2021. Im-Tae. All rights reserved.
  */
 
 package com.leaf.blocker.view
@@ -18,13 +18,9 @@ import com.leaf.blocker.extend.throttleLatest
  * Register a callback to be invoked when this view is clicked. If this view is not clickable, it becomes clickable.
  *
  * This callback emit the most recent items emitted by an Observable within periodic time intervals.
- * ```
- * -------
- * ```
+ *
  * interval 기준으로 가장 처음에 들어온 요청만 처리합니다.
- * ```
- * -------
- * ```
+ *
  * Example of use:
  * ```
  * (view).setOnThrottleFirstListener {
@@ -54,13 +50,9 @@ fun View.setOnThrottleFirstListener(
  * Register a callback to be invoked when this view is clicked. If this view is not clickable, it becomes clickable.
  *
  * This callback emit the last items emitted by an Observable within periodic time intervals.
- * ```
- * -------
- * ```
+ *
  * interval 기준으로 가장 마지막에 들어온 요청만 처리합니다.
- * ```
- * -------
- * ```
+ *
  * Example of use:
  * ```
  * (view).setOnThrottleLastListener {
@@ -89,13 +81,9 @@ fun View.setOnThrottleLastListener(
  * Register a callback to be invoked when this view is clicked. If this view is not clickable, it becomes clickable.
  *
  * This callback only emit an item from an Observable if a particular timespan has passed without it emitting another item.
- * ```
- * -------
- * ```
+ *
  * 첫 요청 이후 interval 기준으로 요청이 들어오지 않으면 처리합니다.
- * ```
- * -------
- * ```
+ *
  * Example of use:
  * ```
  * (view).setOnDebounceClickListener {
