@@ -1,17 +1,18 @@
 /*
- * Create by Im-Tae on 2021. 9. 16.
+ * Create by Im-Tae on 2024. 8. 14.
  *
- * Copyright (c) 2021. Im-Tae. All rights reserved.
+ * Copyright (c) 2024. Im-Tae. All rights reserved.
  */
 
-package com.leaf.blocker.extend
+package com.leaf.blocker.view
 
 import android.view.View
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.coroutineScope
 import com.leaf.blocker.Blocker
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.MainScope
+import com.leaf.blocker.extend.debounce
+import com.leaf.blocker.extend.throttleFirst
+import com.leaf.blocker.extend.throttleLatest
 
 /**
  * Register a callback to be invoked when this view is clicked. If this view is not clickable, it becomes clickable.

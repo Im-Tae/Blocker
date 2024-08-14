@@ -18,8 +18,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
-import com.leaf.blocker.extend.DebounceButton
-import com.leaf.blocker.extend.ThrottleButton
+import com.leaf.blocker.compose.material3.DebounceButton
+import com.leaf.blocker.compose.material3.ThrottleButton
 import timber.log.Timber
 
 @Composable

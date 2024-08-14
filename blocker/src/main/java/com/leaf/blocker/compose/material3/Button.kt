@@ -1,10 +1,10 @@
 /*
- * Create by Im-Tae on 2022. 11. 7.
+ * Create by Im-Tae on 2024. 8. 14.
  *
- * Copyright (c) 2022. Im-Tae. All rights reserved.
+ * Copyright (c) 2024. Im-Tae. All rights reserved.
  */
 
-package com.leaf.blocker.extend
+package com.leaf.blocker.compose.material3
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -22,7 +22,8 @@ import androidx.compose.ui.graphics.Shape
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import com.leaf.blocker.Blocker
-import kotlinx.coroutines.MainScope
+import com.leaf.blocker.extend.debounce
+import com.leaf.blocker.extend.throttleFirst
 
 @Composable
 fun ThrottleButton(
