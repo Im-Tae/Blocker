@@ -6,87 +6,81 @@
 
 package com.leaf.blocker.compose.material
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.RowScope
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonColors
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.ButtonElevation
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material.RadioButton
+import androidx.compose.material.RadioButtonColors
+import androidx.compose.material.RadioButtonDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Shape
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import com.leaf.blocker.Blocker
 import com.leaf.blocker.extend.debounce
 import com.leaf.blocker.extend.throttleFirst
 
+/**
+ * A ThrottleRadioButton is a RadioButton that prevents multiple clicks in a short time.
+ * This callback emit the most recent items emitted by an Observable within periodic time intervals.
+ *
+ * @param skipInterval skip interval; default interval is 2000Ms
+ */
 @Composable
-fun ThrottleButton(
-    onClick: () -> Unit,
+fun ThrottleRadioButton(
+    selected: Boolean,
+    onClick: (() -> Unit)?,
     modifier: Modifier = Modifier,
     skipInterval: Long = Blocker.getInterval(),
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    elevation: ButtonElevation? = ButtonDefaults.elevation(),
-    shape: Shape = MaterialTheme.shapes.small,
-    border: BorderStroke? = null,
-    colors: ButtonColors = ButtonDefaults.buttonColors(),
-    contentPadding: PaddingValues = ButtonDefaults.ContentPadding,
-    content: @Composable RowScope.() -> Unit
+    colors: RadioButtonColors = RadioButtonDefaults.colors()
 ) {
     val lifecycleOwner = LocalLifecycleOwner.current
-    Button(
+    RadioButton(
+        selected = selected,
         onClick = throttleFirst(
             skipInterval = skipInterval,
             coroutineScope = lifecycleOwner.lifecycleScope,
-            callback = onClick
+            callback = {
+                onClick?.invoke()
+            }
         ),
         modifier = modifier,
         enabled = enabled,
         interactionSource = interactionSource,
-        elevation = elevation,
-        shape = shape,
-        border = border,
-        colors = colors,
-        contentPadding = contentPadding,
-        content = content
+        colors = colors
     )
 }
 
+/**
+ * A DebounceRadioButton is a RadioButton that prevents multiple clicks in a short time.
+ * This callback only emit an item from an Observable if a particular timespan has passed without it emitting another item.
+ *
+ * @param waitInterval wait interval; default interval is 2000Ms
+ */
 @Composable
-fun DebounceButton(
-    onClick: () -> Unit,
+fun DebounceRadioButton(
+    selected: Boolean,
+    onClick: (() -> Unit)?,
     modifier: Modifier = Modifier,
     waitInterval: Long = Blocker.getInterval(),
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    elevation: ButtonElevation? = ButtonDefaults.elevation(),
-    shape: Shape = MaterialTheme.shapes.small,
-    border: BorderStroke? = null,
-    colors: ButtonColors = ButtonDefaults.buttonColors(),
-    contentPadding: PaddingValues = ButtonDefaults.ContentPadding,
-    content: @Composable RowScope.() -> Unit,
+    colors: RadioButtonColors = RadioButtonDefaults.colors()
 ) {
     val lifecycleOwner = LocalLifecycleOwner.current
-    Button(
+    RadioButton(
+        selected = selected,
         onClick = debounce(
             waitInterval = waitInterval,
             coroutineScope = lifecycleOwner.lifecycleScope,
-            callback = onClick
+            callback = {
+                onClick?.invoke()
+            }
         ),
         modifier = modifier,
         enabled = enabled,
         interactionSource = interactionSource,
-        elevation = elevation,
-        shape = shape,
-        border = border,
-        colors = colors,
-        contentPadding = contentPadding,
-        content = content
+        colors = colors
     )
 }

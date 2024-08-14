@@ -30,8 +30,6 @@ import com.leaf.blocker.extend.throttleFirst
  * This callback emit the most recent items emitted by an Observable within periodic time intervals.
  *
  * @param skipInterval skip interval; default interval is 2000Ms
- *
- * Using [com.leaf.blocker.Blocker.Companion.setInterval] to change interval
  */
 @Composable
 fun ThrottleButton(
@@ -56,12 +54,12 @@ fun ThrottleButton(
         ),
         modifier = modifier,
         enabled = enabled,
-        interactionSource = interactionSource,
-        elevation = elevation,
         shape = shape,
-        border = border,
         colors = colors,
+        elevation = elevation,
+        border = border,
         contentPadding = contentPadding,
+        interactionSource = interactionSource,
         content = content
     )
 }
@@ -71,8 +69,6 @@ fun ThrottleButton(
  * This callback only emit an item from an Observable if a particular timespan has passed without it emitting another item.
  *
  * @param waitInterval wait interval; default interval is 2000Ms
- *
- * Using [com.leaf.blocker.Blocker.Companion.setInterval] to change interval
  */
 @Composable
 fun DebounceButton(
@@ -97,12 +93,12 @@ fun DebounceButton(
         ),
         modifier = modifier,
         enabled = enabled,
-        interactionSource = interactionSource,
-        elevation = elevation,
         shape = shape,
-        border = border,
         colors = colors,
+        elevation = elevation,
+        border = border,
         contentPadding = contentPadding,
+        interactionSource = interactionSource,
         content = content
     )
 }
