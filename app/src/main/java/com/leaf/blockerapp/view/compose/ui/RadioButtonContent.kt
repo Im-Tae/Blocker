@@ -11,7 +11,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.Text
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -24,6 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.leaf.blocker.compose.material3.DebounceRadioButton
 import com.leaf.blocker.compose.material3.ThrottleRadioButton
+import timber.log.Timber
 
 @Composable
 fun RadioButtonContent(
@@ -42,20 +43,22 @@ fun RadioButtonContent(
         Row(
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            ThrottleRadioButton(
+            ThrottleRadioLabelButton(
                 label = "Throttle [Default]",
                 selected = selectedThrottleId == 0,
                 onClick = {
-                    Toast.makeText(context, "`Throttle [Default]` Click", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "`ThrottleRadioButton [Default]` Click", Toast.LENGTH_SHORT).show()
+                    Timber.tag("[Compose] ").i("ThrottleRadioButton [Default]` Click")
                     selectedThrottleId = 0
                 }
             )
-            ThrottleRadioButton(
+            ThrottleRadioLabelButton(
                 label = "Throttle [1000L]",
                 selected = selectedThrottleId == 1,
-                skipInterval = 3000L,
+                skipInterval = 1000L,
                 onClick = {
-                    Toast.makeText(context, "`Throttle [1000L]` Click", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "`ThrottleRadioButton [1000L]` Click", Toast.LENGTH_SHORT).show()
+                    Timber.tag("[Compose] ").i("ThrottleRadioButton [1000L]` Click")
                     selectedThrottleId = 1
                 }
             )
@@ -67,7 +70,8 @@ fun RadioButtonContent(
                 label = "Debounce [Default]",
                 isSelected = selectedDebounceId == 0,
                 onClick = {
-                    Toast.makeText(context, "`Debounce [Default]` Click", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "`DebounceRadioButton [Default]` Click", Toast.LENGTH_SHORT).show()
+                    Timber.tag("[Compose] ").i("DebounceRadioButton [Default]` Click")
                     selectedDebounceId = 0
                 }
             )
@@ -76,7 +80,8 @@ fun RadioButtonContent(
                 isSelected = selectedDebounceId == 1,
                 waitInterval = 1000L,
                 onClick = {
-                    Toast.makeText(context, "`Debounce [1000L]` Click", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "`DebounceRadioButton [1000L]` Click", Toast.LENGTH_SHORT).show()
+                    Timber.tag("[Compose] ").i("DebounceRadioButton [1000L]` Click")
                     selectedDebounceId = 1
                 }
             )
@@ -85,7 +90,7 @@ fun RadioButtonContent(
 }
 
 @Composable
-private fun ThrottleRadioButton(
+private fun ThrottleRadioLabelButton(
     modifier: Modifier = Modifier,
     label: String,
     selected: Boolean,

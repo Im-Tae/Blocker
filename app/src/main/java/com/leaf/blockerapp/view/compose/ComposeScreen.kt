@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.leaf.blockerapp.view.compose.ui.ButtonContent
+import com.leaf.blockerapp.view.compose.ui.CheckBoxContent
 import com.leaf.blockerapp.view.compose.ui.RadioButtonContent
 
 @Composable
@@ -27,6 +28,7 @@ fun ComposeScreen(
     ) {
         ButtonContent()
         RadioButtonContent()
+        CheckBoxContent()
     }
 }
 
