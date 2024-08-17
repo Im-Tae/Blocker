@@ -124,7 +124,7 @@ private fun DebounceRadioLabelButton(
     label: String,
     isSelected: Boolean,
     waitInterval: Long? = null,
-    onClick: () -> Unit
+    onClick: (() -> Unit)?
 ) {
     Row(
         modifier = modifier,

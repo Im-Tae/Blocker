@@ -38,13 +38,13 @@ fun ThrottleRadioButton(
     val lifecycleOwner = LocalLifecycleOwner.current
     RadioButton(
         selected = selected,
-        onClick = throttleFirst(
-            skipInterval = skipInterval,
-            coroutineScope = lifecycleOwner.lifecycleScope,
-            callback = {
-                onClick?.invoke()
-            }
-        ),
+        onClick = onClick?.let { callback ->
+            throttleFirst(
+                skipInterval = skipInterval,
+                coroutineScope = lifecycleOwner.lifecycleScope,
+                callback = callback
+            )
+        } ?: run { { } },
         modifier = modifier,
         enabled = enabled,
         colors = colors,
@@ -71,13 +71,13 @@ fun DebounceRadioButton(
     val lifecycleOwner = LocalLifecycleOwner.current
     RadioButton(
         selected = selected,
-        onClick = debounce(
-            waitInterval = waitInterval,
-            coroutineScope = lifecycleOwner.lifecycleScope,
-            callback = {
-                onClick?.invoke()
-            }
-        ),
+        onClick = onClick?.let { callback ->
+            debounce(
+                waitInterval = waitInterval,
+                coroutineScope = lifecycleOwner.lifecycleScope,
+                callback = callback
+            )
+        } ?: run { { } },
         modifier = modifier,
         enabled = enabled,
         colors = colors,
