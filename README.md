@@ -3,16 +3,18 @@
 <p align="center">
   <a href="https://github.com/Im-Tae"><img alt="Author" src="https://img.shields.io/badge/author-Im--Tae-red.svg"/></a>
   <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
+  <a href="https://github.com/Im-Tae/Blocker/actions"><img alt="License" src="https://github.com/Im-Tae/Blocker/actions/workflows/ci.yml/badge.svg"/></a>
+  <a href="https://im-tae.github.io/Blocker/"><img alt="License" src="https://img.shields.io/static/v1?label=Dokka&message=Blocker&color=000000&logo=kotlin"/></a>
 </p>
 <p align="center">  
-Use this library to set a delay on your Android listener.</p>
+Use this library to easily add throttle and debounce capabilities to your Android listeners,</br> preventing unnecessary duplicate processing and ensuring that actions are triggered at the desired intervals.</p>
 
 
 
 
 ## Install
 
-[![](https://github.com/Im-Tae/Blocker/actions/workflows/ci.yml/badge.svg)](https://github.com/Im-Tae/Blocker/actions) [![Maven Central](https://img.shields.io/maven-central/v/io.github.im-tae/blocker.svg?label=Maven%20Central)](https://search.maven.org/search?q=io.github.im-tae%2C+blocker)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.im-tae/blocker.svg?label=Maven%20Central)](https://search.maven.org/search?q=io.github.im-tae%2C+blocker)
 
 ### Gradle
 
