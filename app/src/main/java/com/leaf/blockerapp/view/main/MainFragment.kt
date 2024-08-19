@@ -18,10 +18,10 @@ import androidx.navigation.fragment.findNavController
 import com.leaf.blockerapp.R
 import com.leaf.blockerapp.theme.DefaultTheme
 
-enum class Button(name: String) {
-    View(name = "View"),
-    DataBinding(name = "DataBinding"),
-    Compose(name = "Compose"),
+enum class Button(val displayName: String) {
+    View(displayName = "View"),
+    DataBinding(displayName = "DataBinding"),
+    Compose(displayName = "Compose (Material3)"),
 }
 
 class MainFragment : Fragment() {

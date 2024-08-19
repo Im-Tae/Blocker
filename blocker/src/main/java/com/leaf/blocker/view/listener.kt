@@ -4,26 +4,23 @@
  * Copyright (c) 2021. Im-Tae. All rights reserved.
  */
 
-package com.leaf.blocker.extend
+package com.leaf.blocker.view
 
 import android.view.View
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.coroutineScope
 import com.leaf.blocker.Blocker
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.MainScope
+import com.leaf.blocker.extend.debounce
+import com.leaf.blocker.extend.throttleFirst
+import com.leaf.blocker.extend.throttleLatest
 
 /**
  * Register a callback to be invoked when this view is clicked. If this view is not clickable, it becomes clickable.
  *
  * This callback emit the most recent items emitted by an Observable within periodic time intervals.
- * ```
- * -------
- * ```
+ *
  * interval 기준으로 가장 처음에 들어온 요청만 처리합니다.
- * ```
- * -------
- * ```
+ *
  * Example of use:
  * ```
  * (view).setOnThrottleFirstListener {
@@ -53,13 +50,9 @@ fun View.setOnThrottleFirstListener(
  * Register a callback to be invoked when this view is clicked. If this view is not clickable, it becomes clickable.
  *
  * This callback emit the last items emitted by an Observable within periodic time intervals.
- * ```
- * -------
- * ```
+ *
  * interval 기준으로 가장 마지막에 들어온 요청만 처리합니다.
- * ```
- * -------
- * ```
+ *
  * Example of use:
  * ```
  * (view).setOnThrottleLastListener {
@@ -88,13 +81,9 @@ fun View.setOnThrottleLastListener(
  * Register a callback to be invoked when this view is clicked. If this view is not clickable, it becomes clickable.
  *
  * This callback only emit an item from an Observable if a particular timespan has passed without it emitting another item.
- * ```
- * -------
- * ```
+ *
  * 첫 요청 이후 interval 기준으로 요청이 들어오지 않으면 처리합니다.
- * ```
- * -------
- * ```
+ *
  * Example of use:
  * ```
  * (view).setOnDebounceClickListener {

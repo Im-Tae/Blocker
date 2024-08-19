@@ -32,7 +32,7 @@ fun MainView(
             contentType = { _, item -> item::class.java.name },
         ) { _, item ->
             ButtonView(
-                item.name,
+                item.displayName,
                 onClick = { onClickButton(item) }
             )
         }

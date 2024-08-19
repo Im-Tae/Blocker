@@ -37,8 +37,9 @@ timber = "5.0.1"
 
 # plugins
 androidGradlePlugin = "8.0.2"
-kotlinVersion = "1.8.10"
+kotlinVersion = "1.9.23"
 hiltVersion = "2.44"
+dokka = "1.9.20"
 
 [libraries]
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidxCoreKtx" }
@@ -88,3 +89,4 @@ android-library = { id = "com.android.library", version.ref = "androidGradlePlug
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinVersion" }
 kotlin-android-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlinVersion" }
 google-dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltVersion" }
+dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }

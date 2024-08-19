@@ -1,4 +1,8 @@
 import com.leaf.buildsrc.Configuration
+import com.vanniktech.maven.publish.JavadocJar
+import com.vanniktech.maven.publish.KotlinJvm
+import org.jetbrains.dokka.base.DokkaBase
+import org.jetbrains.dokka.base.DokkaBaseConfiguration
 
 val libVersion = "1.0.0"
 
@@ -7,6 +11,7 @@ plugins {
     id("kotlin-android")
     id("kotlin-kapt")
     id("com.vanniktech.maven.publish") version "0.29.0"
+    id("org.jetbrains.dokka")
 }
 
 rootProject.extra.apply {
@@ -18,6 +23,12 @@ rootProject.extra.apply {
             Configuration.versionName
         }
     set("libVersion", libVersion)
+}
+val dokkaHtml by tasks.getting(org.jetbrains.dokka.gradle.DokkaTask::class)
+val javadocJar: TaskProvider<Jar> by tasks.registering(Jar::class) {
+    dependsOn(dokkaHtml)
+    archiveClassifier.set("javadoc")
+    from(dokkaHtml.outputDirectory)
 }
 
 mavenPublishing {
@@ -67,12 +78,44 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17.toString()
+    }
+
     kotlin {
         jvmToolchain(17)
     }
+
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = Configuration.kotlinCompilerExtensionVersion
     }
+}
+
+tasks.dokkaHtml.configure {
+    outputDirectory.set(file("../dokka/html"))
+    moduleName.set(project.name)
+    pluginConfiguration<DokkaBase, DokkaBaseConfiguration> {
+        footerMessage =
+            """© 2024 by <a href="https://github.com/Im-Tae">@Im-Tae</a>"""
+        separateInheritedMembers = true
+    }
+    dokkaSourceSets {
+        configureEach {
+            jdkVersion.set(17)
+            skipDeprecated.set(true)
+            includeNonPublic.set(false)
+            skipEmptyPackages.set(true)
+            reportUndocumented.set(false)
+            perPackageOption {
+                matchingRegex.set(".*\\.internal.*")
+                suppress.set(true)
+            }
+        }
+    }
+}
+
+afterEvaluate {
+    tasks["dokkaHtml"].dependsOn(tasks.getByName("kaptReleaseKotlin"), tasks.getByName("kaptDebugKotlin"))
 }
 
 dependencies {

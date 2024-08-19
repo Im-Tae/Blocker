@@ -54,3 +54,11 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
+
+      - name: Create Tag
+        if: github.ref == 'refs/heads/main' && success()  # Start when push is to main and the build is successful
+        run: |
+          git tag ${{ github.event.inputs.version_name }}
+          git push origin ${{ github.event.inputs.version_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
