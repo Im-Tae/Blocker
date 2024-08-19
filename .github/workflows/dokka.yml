@@ -1,0 +1,36 @@
+name: Dokka
+
+on:
+  workflow_run:
+    workflows: [ "Publish" ]
+    types:
+      - completed
+    branches:
+      - main
+
+jobs:
+  docs:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: 17
+          distribution: temurin
+
+      - name: Set Gradle Permission
+        run: chmod +x gradlew
+
+      - name: Create Docs
+        run: ./gradlew dokkaHtml --no-configuration-cache
+
+      - name: Deploy Docs to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          BRANCH: docs
+          FOLDER: dokka/html
