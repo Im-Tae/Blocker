@@ -4,20 +4,23 @@ plugins {
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.android.jvm) apply false
     alias(libs.plugins.google.dagger.hilt) apply false
+    alias(libs.plugins.dokka) apply false
 }
 
 buildscript {
     dependencies {
         classpath("com.github.dcendents:android-maven-gradle-plugin:2.1")
+        classpath("org.jetbrains.dokka:dokka-base:1.9.20")
     }
     repositories {
         google()
     }
 }
 
-tasks.register("clean", Delete::class) {
-    delete(rootProject.layout.buildDirectory)
-}
 repositories {
     google()
+}
+
+tasks.register("clean", Delete::class) {
+    delete(rootProject.layout.buildDirectory)
 }
