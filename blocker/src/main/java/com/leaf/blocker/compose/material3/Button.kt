@@ -4,7 +4,7 @@
  * Copyright (c) 2022. Im-Tae. All rights reserved.
  */
 
-package com.leaf.blocker.extend
+package com.leaf.blocker.compose.material3
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -22,8 +22,15 @@ import androidx.compose.ui.graphics.Shape
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import com.leaf.blocker.Blocker
-import kotlinx.coroutines.MainScope
+import com.leaf.blocker.extend.debounce
+import com.leaf.blocker.extend.throttleFirst
 
+/**
+ * A ThrottleButton is a button that prevents multiple clicks in a short time.
+ * This callback emit the most recent items emitted by an Observable within periodic time intervals.
+ *
+ * @param skipInterval skip interval; default interval is 2000Ms
+ */
 @Composable
 fun ThrottleButton(
     onClick: () -> Unit,
@@ -47,16 +54,22 @@ fun ThrottleButton(
         ),
         modifier = modifier,
         enabled = enabled,
-        interactionSource = interactionSource,
-        elevation = elevation,
         shape = shape,
-        border = border,
         colors = colors,
+        elevation = elevation,
+        border = border,
         contentPadding = contentPadding,
+        interactionSource = interactionSource,
         content = content
     )
 }
 
+/**
+ * A DebounceButton is a button that prevents multiple clicks in a short time.
+ * This callback only emit an item from an Observable if a particular timespan has passed without it emitting another item.
+ *
+ * @param waitInterval wait interval; default interval is 2000Ms
+ */
 @Composable
 fun DebounceButton(
     onClick: () -> Unit,
@@ -80,12 +93,12 @@ fun DebounceButton(
         ),
         modifier = modifier,
         enabled = enabled,
-        interactionSource = interactionSource,
-        elevation = elevation,
         shape = shape,
-        border = border,
         colors = colors,
+        elevation = elevation,
+        border = border,
         contentPadding = contentPadding,
+        interactionSource = interactionSource,
         content = content
     )
 }

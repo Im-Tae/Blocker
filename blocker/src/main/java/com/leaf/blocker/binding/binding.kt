@@ -4,13 +4,15 @@
  * Copyright (c) 2021. Im-Tae. All rights reserved.
  */
 
-package com.leaf.blocker.extend
+package com.leaf.blocker.binding
 
 import android.util.Log
 import android.view.View
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.findViewTreeLifecycleOwner
-import kotlinx.coroutines.MainScope
+import com.leaf.blocker.view.setOnDebounceClickListener
+import com.leaf.blocker.view.setOnThrottleFirstListener
+import com.leaf.blocker.view.setOnThrottleLastListener
 
 @BindingAdapter(value = ["onThrottleFirstClick", "skipInterval"], requireAll = false)
 fun View.onThrottleFirstClick(listener: View.OnClickListener, skipInterval: Long?) {

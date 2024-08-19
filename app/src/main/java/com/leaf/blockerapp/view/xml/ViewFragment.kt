@@ -13,9 +13,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.leaf.blocker.extend.setOnDebounceClickListener
-import com.leaf.blocker.extend.setOnThrottleFirstListener
-import com.leaf.blocker.extend.setOnThrottleLastListener
+import com.leaf.blocker.view.setOnDebounceClickListener
+import com.leaf.blocker.view.setOnThrottleFirstListener
+import com.leaf.blocker.view.setOnThrottleLastListener
 import com.leaf.blockerapp.BR
 import com.leaf.blockerapp.databinding.FragmentViewBinding
 import dagger.hilt.android.AndroidEntryPoint
